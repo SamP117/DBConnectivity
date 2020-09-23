@@ -19,7 +19,9 @@ namespace DBConnectivity
 
         private void btnMediaFiles_Click(object sender, EventArgs e)
         {
-
+            DataTable DT = (DataTable)dataGridView1.DataSource;
+            if (DT != null)
+                DT.Clear();
             // connection object - connect to db
             //command object - write sql query
             string query = "SELECT * FROM MediaFiles";
@@ -34,6 +36,9 @@ namespace DBConnectivity
        
         private void btnMusic_Click(object sender, EventArgs e)
         {
+            DataTable DT = (DataTable)dataGridView1.DataSource;
+            if (DT != null)
+                DT.Clear();
             // connection object - connect to db
             //command object - write sql query
             string query = "SELECT * FROM MediaFiles WHERE FileType LIKE 'MP3'";
@@ -48,6 +53,9 @@ namespace DBConnectivity
 
         private void btnImages_Click(object sender, EventArgs e)
         {
+            DataTable DT = (DataTable)dataGridView1.DataSource;
+            if (DT != null)
+                DT.Clear();
             // connection object - connect to db
             //command object - write sql query
             string query = "SELECT * FROM MediaFiles WHERE FileType LIKE 'JPEG'";
@@ -62,9 +70,12 @@ namespace DBConnectivity
 
         private void btnShowFiles_Click(object sender, EventArgs e)
         {
+            DataTable DT = (DataTable)dataGridView1.DataSource;
+            if (DT != null)
+                DT.Clear();
             // connection object - connect to db
             //command object - write sql query
-            string query = "SELECT * FROM MediaFiles WHERE FileType LIKE 'DOC' OR FileType LIKE 'XLS'";
+            string query = "SELECT * FROM MediaFiles WHERE FileType LIKE 'DOC' OR FileType LIKE 'XLS' OR FileType LIKE 'PDF'";
             SQLiteCommand cmd = new SQLiteCommand(query, con); //what query to execute, what connection
                                                                // adapter - read data from db
                                                                // datatable - adapter will read data and write into datatable
