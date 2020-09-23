@@ -16,8 +16,10 @@ namespace DBConnectivity
         DataTable dt = new DataTable();
         SQLiteConnection con = new SQLiteConnection(@"datasource = C:\Users\admin\Desktop\Databases\sms.db"); // we are going to connect to this db.
 
+
         private void btnMediaFiles_Click(object sender, EventArgs e)
         {
+
             // connection object - connect to db
             //command object - write sql query
             string query = "SELECT * FROM MediaFiles";
@@ -29,7 +31,7 @@ namespace DBConnectivity
 
             dataGridView1.DataSource = dt; //where will I read data from
         }
-
+       
         private void btnMusic_Click(object sender, EventArgs e)
         {
             // connection object - connect to db
@@ -70,6 +72,13 @@ namespace DBConnectivity
             adapter.Fill(dt);
 
             dataGridView1.DataSource = dt; //where will I read data from
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            DataTable DT = (DataTable)dataGridView1.DataSource;
+            if (DT != null)
+                DT.Clear();
         }
     }
 }
